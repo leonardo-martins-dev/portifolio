@@ -1,11 +1,13 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 const FloatingMenu: React.FC<{}> = () => {
   const [activeSection, setActiveSection] = useState("home");
+  const pathname = usePathname();
 
-  const sections = [
+  const allSections = [
     { id: "home", label: "Início" },
     { id: "about", label: "Sobre" },
     { id: "experience", label: "Experiência" },
@@ -13,6 +15,11 @@ const FloatingMenu: React.FC<{}> = () => {
     { id: "projects", label: "Projetos" },
     { id: "contact", label: "Entrar em Contato" },
   ];
+
+  // Filtrar "Habilidades" na rota padrão (/)
+  const sections = pathname === "/" 
+    ? allSections.filter(section => section.id !== "skills")
+    : allSections;
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -197,6 +204,15 @@ const FloatingMenu: React.FC<{}> = () => {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
+    // Se for contato, abrir WhatsApp
+    if (sectionId === "contact") {
+      const message = pathname === "/curriculo" 
+        ? "Olá%20Leonardo,%20gostei%20do%20seu%20perfil,%20está%20livre%20para%20uma%20conversa?"
+        : "Olá%20Leonardo,%20tenho%20intesse%20em%20um%20projeto!";
+      window.open(`https://wa.me/5519982893861?text=${message}`);
+      return;
+    }
+    
     // Atualizar estado imediatamente ao clicar
     setActiveSection(sectionId);
     
