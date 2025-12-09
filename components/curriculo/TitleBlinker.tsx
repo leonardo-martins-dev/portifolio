@@ -1,10 +1,15 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 const TitleBlinker: React.FC<{}> = () => {
+  const pathname = usePathname();
+  
   useEffect(() => {
-    const originalTitle = "Leonardo Martins - Currículo | Desenvolvedor Fullstack Sênior";
+    const originalTitle = pathname === "/curriculo" 
+      ? "Leonardo Martins - Currículo | Desenvolvedor Fullstack Sênior"
+      : "Leonardo Martins - Desenvolvedor Fullstack Sênior | Soluções em IA e Plataformas SaaS";
     const notificationTitle = "1 notificação recebida";
     
     let isOriginal = true;
@@ -19,7 +24,7 @@ const TitleBlinker: React.FC<{}> = () => {
       clearInterval(interval);
       document.title = originalTitle; // Restaurar o título original
     };
-  }, []);
+  }, [pathname]);
 
   return null; // Este componente não renderiza nada
 };
