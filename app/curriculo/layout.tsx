@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     title: "Leonardo Martins - Currículo | Desenvolvedor Fullstack Sênior",
     description:
       "Currículo profissional de Leonardo Martins - Engenheiro de Software Sênior especializado em desenvolvimento fullstack e IA.",
-    images: "/OpenGraph.jpg",
+    images: "/OpenGraph.jpg?v=2",
   },
   robots: {
     index: true,
