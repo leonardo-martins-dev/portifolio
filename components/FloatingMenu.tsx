@@ -256,13 +256,13 @@ const FloatingMenu: React.FC<{}> = () => {
   const isCurriculo = pathname === "/curriculo";
 
   return (
-    <nav className="fixed top-4 sm:top-8 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-[95vw] sm:max-w-none px-2 sm:px-0">
-      <div className={`backdrop-blur-md bg-white/10 border border-white/20 rounded-full shadow-lg overflow-x-auto scrollbar-hide flex justify-center ${
+    <nav className="fixed top-4 sm:top-8 left-1/2 transform -translate-x-1/2 z-50">
+      <div className={`backdrop-blur-md bg-white/10 border border-white/20 rounded-full shadow-lg overflow-x-auto scrollbar-hide ${
         isCurriculo 
           ? "px-1.5 sm:px-3 md:px-4 pr-2 sm:pr-3 md:pr-4 py-1.5 sm:py-2" 
-          : "px-2 sm:px-4 md:px-6 pr-3 sm:pr-4 md:pr-6 py-2 sm:py-3"
+          : "px-2 sm:px-6 pr-3 sm:pr-6 py-2 sm:py-3"
       }`}>
-        <div className={`flex items-center min-w-max justify-center ${
+        <div className={`flex items-center ${
           isCurriculo ? "gap-0.5 sm:gap-1 md:gap-1.5" : "gap-1 sm:gap-2"
         }`}>
           {sections.map((section) => (
@@ -272,7 +272,7 @@ const FloatingMenu: React.FC<{}> = () => {
               className={`rounded-full font-medium transition-all duration-300 whitespace-nowrap ${
                 isCurriculo
                   ? "px-1.5 sm:px-2.5 md:px-3 py-1 sm:py-1.5 text-[10px] sm:text-xs md:text-sm"
-                  : "px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 text-xs sm:text-sm"
+                  : "px-2 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm"
               } ${
                 activeSection === section.id
                   ? "bg-white/20 text-white shadow-md"
