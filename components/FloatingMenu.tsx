@@ -9,6 +9,7 @@ const FloatingMenu: React.FC<{}> = () => {
     { id: "home", label: "Início" },
     { id: "about", label: "Sobre" },
     { id: "experience", label: "Experiência" },
+    { id: "skills", label: "Habilidades" },
     { id: "projects", label: "Projetos" },
     { id: "contact", label: "Entrar em Contato" },
   ];
@@ -31,7 +32,33 @@ const FloatingMenu: React.FC<{}> = () => {
         if (projectsElement) {
           const rect = projectsElement.getBoundingClientRect();
           if (rect.top > viewportTop + 100) {
-            // Sair de projetos, ativar experiência
+            // Sair de projetos, verificar se skills está visível
+            const skillsElement = document.getElementById("skills");
+            if (skillsElement) {
+              const skillsRect = skillsElement.getBoundingClientRect();
+              if (skillsRect.top < window.innerHeight && skillsRect.bottom > 0) {
+                setActiveSection("skills");
+                return;
+              }
+            }
+            // Se skills não está visível, verificar experiência
+            const experienceElement = document.getElementById("experience");
+            if (experienceElement) {
+              const expRect = experienceElement.getBoundingClientRect();
+              if (expRect.top < window.innerHeight) {
+                setActiveSection("experience");
+                return;
+              }
+            }
+          }
+        }
+        
+        // Verificar se saiu de skills (ao subir)
+        const skillsElement = document.getElementById("skills");
+        if (skillsElement) {
+          const rect = skillsElement.getBoundingClientRect();
+          if (rect.top > viewportTop + 100) {
+            // Sair de skills, ativar experiência
             const experienceElement = document.getElementById("experience");
             if (experienceElement) {
               const expRect = experienceElement.getBoundingClientRect();
@@ -73,7 +100,36 @@ const FloatingMenu: React.FC<{}> = () => {
       }
       
       // Lógica para scroll normal (descendo ou quando não está saindo de seção)
-      // Primeiro, verificar se o título de experiência está passando pelo centro
+      // Primeiro, verificar se o título de skills está passando pelo centro
+      const skillsElement = document.getElementById("skills");
+      if (skillsElement) {
+        const titleElement = skillsElement.querySelector("h2");
+        if (titleElement) {
+          const titleRect = titleElement.getBoundingClientRect();
+          const titleCenter = titleRect.top + titleRect.height / 2;
+          const titleDistance = Math.abs(titleCenter - viewportCenter);
+          
+          // Se o título estiver próximo do centro (dentro de 300px), marcar como ativo
+          if (titleDistance < 300 && titleRect.top < window.innerHeight && titleRect.bottom > 0) {
+            setActiveSection("skills");
+            return;
+          }
+        }
+        // Se o título não está no centro, verificar se a seção inteira está visível
+        const skillsRect = skillsElement.getBoundingClientRect();
+        if (skillsRect.top < window.innerHeight && skillsRect.bottom > 0) {
+          const skillsCenter = skillsRect.top + skillsRect.height / 2;
+          const skillsDistance = Math.abs(skillsCenter - viewportCenter);
+          // Se skills está visível e próximo do centro, ativar
+          // Também verificar se está descendo e entrando em skills
+          if (skillsDistance < 400 || (!isScrollingUp && skillsRect.top < viewportCenter && skillsRect.top > -200)) {
+            setActiveSection("skills");
+            return;
+          }
+        }
+      }
+      
+      // Verificar se o título de experiência está passando pelo centro
       const experienceElement = document.getElementById("experience");
       if (experienceElement) {
         const titleElement = experienceElement.querySelector("h2");
@@ -92,7 +148,7 @@ const FloatingMenu: React.FC<{}> = () => {
       
       // Para outras seções, usar a lógica padrão
       const sectionElements = sections
-        .filter(section => section.id !== "experience")
+        .filter(section => section.id !== "experience" && section.id !== "skills")
         .map((section) => {
           const element = document.getElementById(section.id);
           if (!element) return null;
@@ -149,8 +205,8 @@ const FloatingMenu: React.FC<{}> = () => {
       if (element) {
         let targetElement: HTMLElement = element;
         
-        // Para a seção de experiência, centralizar o título
-        if (sectionId === "experience") {
+        // Para as seções de experiência, skills e projects, centralizar o título
+        if (sectionId === "experience" || sectionId === "skills" || sectionId === "projects") {
           const titleElement = element.querySelector("h2");
           if (titleElement) {
             targetElement = titleElement as HTMLElement;

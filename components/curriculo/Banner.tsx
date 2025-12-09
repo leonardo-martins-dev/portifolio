@@ -30,8 +30,9 @@ const Banner: React.FC<{}> = () => {
         </div>
 
         <p className="text-md text-gray-200 my-5 max-w-[600px]">
-          Engenheiro de Software com mais de 6 anos de experiência desenvolvendo plataformas escaláveis, sistemas sob demanda, 
-          integrações com IA, soluções de alta performance e automações. Especializado em aumentar o faturamento e produtividade do seu negócio.
+          Engenheiro de Software com mais de 6 anos de experiência em desenvolvimento fullstack, especializado em 
+          arquiteturas escaláveis, integrações com IA, sistemas de alta performance e automações. Expertise em 
+          TypeScript, Node.js, Python, React, Next.js e tecnologias modernas de desenvolvimento.
         </p>
         <div className="text-md flex justify-center">
           <button
@@ -47,3 +48,4 @@ const Banner: React.FC<{}> = () => {
 };
 
 export default Banner;
+

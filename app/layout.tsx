@@ -10,22 +10,29 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"),
-  title: "Leonardo Martins - SWE | IXD | UX - Portfólio de Desenvolvedor",
+  title: "Leonardo Martins - Desenvolvedor Fullstack Sênior | Soluções em IA e Plataformas SaaS",
   description:
-    "Portfólio de Desenvolvedor Frontend & Mobile App com mais de 3 anos de experiência. Engenheiro de Software Sênior. Especializado em aplicativos móveis, UX e tecnologias JavaScript.",
+    "Contrate um desenvolvedor fullstack sênior especializado em IA, plataformas SaaS escaláveis e automações inteligentes. Mais de 6 anos de experiência entregando soluções que aumentam faturamento e produtividade. Desenvolvimento sob demanda, integrações com IA e sistemas de alta performance.",
   keywords: [
-    "Developer",
-    "Portfolio",
-    "Developer Portflio",
+    "Desenvolvedor Fullstack",
+    "Desenvolvimento de Software",
+    "Plataformas SaaS",
+    "Integração IA",
+    "Automação",
+    "Soluções Tecnológicas",
+    "Desenvolvimento Sob Demanda",
     "Leonardo Martins",
-    "Next.js",
-    "ReactNative",
-    "Android",
+    "TypeScript",
+    "Node.js",
+    "React",
+    "Python",
+    "Inteligência Artificial",
+    "Consultoria em Desenvolvimento",
   ],
   openGraph: {
-    title: "Leonardo Martins - SWE | IXD | UX",
+    title: "Leonardo Martins - Desenvolvedor Fullstack Sênior | Soluções em IA",
     description:
-      "Desenvolvedor Frontend & Mobile App com mais de 3 anos de experiência. Engenheiro de Software Sênior. Especializado em aplicativos móveis, UX e tecnologias JavaScript.",
+      "Desenvolvedor fullstack sênior especializado em plataformas SaaS, integrações com IA e soluções que aumentam faturamento e produtividade. Mais de 6 anos de experiência.",
     images: "/OpenGraph.jpg",
   },
 };
