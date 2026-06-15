@@ -33,7 +33,22 @@ export const metadata: Metadata = {
     title: "Leonardo Martins - Desenvolvedor Fullstack Sênior | Soluções em IA",
     description:
       "Desenvolvedor fullstack sênior especializado em plataformas SaaS, integrações com IA e soluções que aumentam faturamento e produtividade. Mais de 6 anos de experiência.",
-    images: "/OpenGraph.jpg?v=2",
+    images: [
+      {
+        url: "/OpenGraph.jpg?v=3",
+        width: 1200,
+        height: 630,
+        alt: "Leonardo Martins - Desenvolvedor Fullstack Sênior",
+      }
+    ],
+    type: "website",
+    url: process.env.NEXT_PUBLIC_BASE_URL || "https://leonardomartins.pro",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Leonardo Martins - Desenvolvedor Fullstack Sênior",
+    description: "Desenvolvedor fullstack sênior especializado em IA e plataformas SaaS escaláveis.",
+    images: ["/OpenGraph.jpg?v=3"],
   },
 };
 export default function RootLayout({

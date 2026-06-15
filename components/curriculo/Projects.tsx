@@ -16,6 +16,20 @@ interface Project {
   icon?: React.ReactNode;
 }
 
+const logoProjects = [
+  "Campo Alegre",
+  "Packing House - Campo Alegre",
+  "TAM Miranda",
+  "Transmega",
+  "Vizta",
+];
+const invertLogoProjects = [
+  "Alphaville Campinas Clube",
+  "SC Engenharia",
+  "Percebon & Bosco",
+  "Requinte Imobiliária",
+];
+
 const projects: Project[] = [
   {
     title: "Bright Data SDK Python",
@@ -23,6 +37,55 @@ const projects: Project[] = [
     image: "/bright_data_logo.jpg",
     url: "https://github.com/brightdata/sdk-python",
     alt: "Leonardo Martins - Bright Data SDK Python Refactoring"
+  },
+  {
+    title: "TAM Miranda",
+    description: "Desenvolvimento completo de ecossistema de automações e gerenciamento da produção de containers, com previsibilidade comercial.",
+    image: "/emp-t-a-m-miranda-47f52.png",
+    url: "https://www.instagram.com/leonardo_martins.dev/",
+    alt: "Leonardo Martins - TAM Miranda Automações e Produção de Containers"
+  },
+  {
+    title: "Transmega",
+    description: "Desenvolvimento fullstack de plataforma para gestão de frota de veículos, previsibilidade comercial, organização financeira e fechamento de relatórios.",
+    image: "/transmega_logo.jpg",
+    url: "https://www.instagram.com/leonardo_martins.dev/",
+    alt: "Leonardo Martins - Transmega Gestão de Frota"
+  },
+  {
+    title: "Vizta",
+    description: "Desenvolvimento de landing page como portfólio de produtos.",
+    image: "/vizta_logo.png",
+    url: "https://www.instagram.com/leonardo_martins.dev/",
+    alt: "Leonardo Martins - Vizta Landing Page"
+  },
+  {
+    title: "Packing House - Campo Alegre",
+    description: "Automação de conferência e organização de pedidos.",
+    image: "/logo-campo-alegre.png",
+    url: "https://www.instagram.com/agrocampoalegre/",
+    alt: "Leonardo Martins - Packing House Campo Alegre"
+  },
+  {
+    title: "No Ponto Financeiro",
+    description: "Plataforma de gestão financeira com recebimento automático de NFs, gestão de fluxo de caixa com relatórios e DRE.",
+    image: "/noponto_logo.jpg",
+    url: "https://www.instagram.com/noponto.food",
+    alt: "Leonardo Martins - No Ponto Financeiro"
+  },
+  {
+    title: "Agente No Ponto",
+    description: "Agente completo integrado ao WhatsApp conectado ao banco de dados de clientes, com foco em trazer dados de forma facilitada na palma da mão.",
+    image: "/noponto_logo.jpg",
+    url: "https://www.instagram.com/noponto.food",
+    alt: "Leonardo Martins - Agente No Ponto WhatsApp"
+  },
+  {
+    title: "Boa Bola",
+    description: "Aplicativo para gestão de quadras, reservas, campeonatos, disputas e confrontos entre clientes da academia.",
+    image: "/259809191_101235312386007_4342405937480609073_n.jpg",
+    url: "https://www.instagram.com/leonardo_martins.dev/",
+    alt: "Leonardo Martins - Boa Bola Gestão de Quadras"
   },
   {
     title: "No Ponto",
@@ -143,11 +206,11 @@ const Projects: React.FC<{}> = () => {
                           fill
                           className={cn(
                             "transition-transform duration-500",
-                              project.title === "Campo Alegre"
-                                ? "object-contain p-4 group-hover:scale-105"
-                                : project.title === "Alphaville Campinas Clube" || project.title === "SC Engenharia" || project.title === "Percebon & Bosco" || project.title === "Requinte Imobiliária"
-                                ? "object-contain p-4 group-hover:scale-105 brightness-0 invert"
-                                : "object-cover group-hover:scale-110"
+                            logoProjects.includes(project.title)
+                              ? "object-contain p-4 group-hover:scale-105"
+                              : invertLogoProjects.includes(project.title)
+                              ? "object-contain p-4 group-hover:scale-105 brightness-0 invert"
+                              : "object-cover group-hover:scale-110"
                           )}
                           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         />

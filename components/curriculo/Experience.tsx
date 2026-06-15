@@ -5,6 +5,14 @@ import { Timeline, TimelineItem } from "@/components/ui/modern-timeline";
 
 const experienceData: TimelineItem[] = [
   {
+    title: "Mouts TI - Senior Backend Developer CrewAI/Python",
+    description: "Responsável pelo desenvolvimento de plataforma de mensageria e processamento de conversas em tempo real, atuando desde microserviços orientados a eventos até integração com sistema agêntico baseado em IA. Python/FastAPI: RabbitMQ (exchanges topic, filas duráveis, DLQ), Redis (cache, rate limiting, Pub/Sub multi-instância), autenticação JWT, WebSocket para notificações (gerenciador de conexões com join/leave/heartbeat), processamento assíncrono de respostas, webhooks Twilio (WhatsApp/SMS) com validação de assinatura e rate limit por token. No dispatcher: orquestração do fluxo (enrichment de identidade com Redis, HTTP ao Router e Media Service), circuit breaker, publicação de eventos e métricas, logging estruturado e OpenTelemetry. Router CrewAI (guardrails, sentimento, idioma, orquestração de agentes/flows; deploy CrewAI Enterprise via API REST). Infra Docker Compose (RabbitMQ, Redis, serviços de mensageria); analytics em Azure Event Hubs e Databricks. Evolução em .NET 8/C# na GenAI Foundation: Gateway (Ocelot), Identity, Action, Media e Orchestrator (Semantic Kernel), PostgreSQL/Marten, Redis, Kafka/Azure Event Hub, SignalR, Casbin, Kubernetes e Azure Pipelines. Stellar Chat: ASP.NET Core, SignalR, CQRS, Azure AD, integração foundation e ServiceNow Live Agent, eventos de domínio em Kafka, Chat V2 (Marten). Em implementação: telemetria Live Agent (TME, handling time, CSAT, TMA proxy) para BI.",
+    date: "Dez 2025 - Maio 2026",
+    category: "Backend & IA",
+    status: "completed",
+    image: "/mouts-logo.png"
+  },
+  {
     title: "Grupo Wite - Desenvolvedor Fullstack Sênior",
     description: "Desenvolvi duas plataformas SaaS escaláveis: recuperação de carrinhos com microserviços e integração oficial à API WhatsApp Business, e assistente virtual contextualizado com IA. Arquiteturas modulares e de alta performance com TypeScript, Node.js (Express/Fastify), autenticação JWT distribuída, integração avançada com Meta WhatsApp Business API (múltiplas contas, webhooks em tempo real), modelagem com Supabase, APIs RESTful documentadas com Swagger, WebSockets para atualizações em tempo real e camadas robustas de segurança (Helmet, CORS, rate limiting, HMAC). No frontend, criei widget JavaScript leve e customizável com detecção automática de rotas, animações e markdown.",
     date: "Out 2025 - Dez 2025",
